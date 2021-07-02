@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # specify source file directories
 set(DIR_SRC "${FT_BASE_LIB_SOURCE_DIR}/src")
 set(DIR_BUILD "${DIR_SRC}/build")
+set(DIR_CONTAINER "${DIR_SRC}/container")
 set(DIR_ERROR "${DIR_SRC}/error")
 set(DIR_HANDLE "${DIR_SRC}/handle")
 set(DIR_THREAD "${DIR_SRC}/thread")
@@ -34,6 +35,14 @@ source_group("source\\build" FILES ${SRC_BUILD_CPP})
 source_group("header\\build" FILES ${SRC_BUILD_HPP})
 list (APPEND CPP_FULL ${SRC_BUILD_CPP})
 list (APPEND HPP_FULL ${SRC_BUILD_HPP})
+
+# source : container
+file(GLOB_RECURSE SRC_CONTAINER_CPP ${DIR_CONTAINER}/*.cpp)
+file(GLOB_RECURSE SRC_CONTAINER_HPP ${DIR_CONTAINER}/*.h ${DIR_CONTAINER}/*.hpp)
+source_group("source\\container" FILES ${SRC_CONTAINER_CPP})
+source_group("header\\container" FILES ${SRC_CONTAINER_HPP})
+list (APPEND CPP_FULL ${SRC_CONTAINER_CPP})
+list (APPEND HPP_FULL ${SRC_CONTAINER_HPP})
 
 # source : error
 file(GLOB_RECURSE SRC_ERROR_CPP ${DIR_ERROR}/*.cpp)
