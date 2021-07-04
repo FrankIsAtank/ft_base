@@ -22,10 +22,10 @@ enum class t_platforms : std::uint_fast32_t {
     #define FT_OS_WINDOWS
     
     #ifdef _WIN64
-        #define FT_x64
+        #define FT_OS_X64
         constexpr auto g_platform = t_platforms::windows_x64;
     #else
-        #define FT_X86
+        #define FT_OS_X86
         constexpr auto g_platform = t_platforms::windows_x86;
     #endif  // _WIN64
 
