@@ -2,7 +2,7 @@
 
 // Defines macros for the current build configuration
 
-#include "platform.h"
+#include "base/platform.h"
 
 namespace ft {
 namespace base {
