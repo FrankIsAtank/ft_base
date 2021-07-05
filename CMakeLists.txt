@@ -83,3 +83,8 @@ set_target_properties(FT_BASE_LIB PROPERTIES OUTPUT_NAME ft_base_lib)
 # define default include path
 target_include_directories(FT_BASE_LIB PRIVATE "${DIR_SRC}")
 
+# include other ft libraries
+set(FT_LIB_ROOT $ENV{FT_ROOT})
+
+# include ft_platform_lib
+include_directories(${FT_LIB_ROOT}/ft_platform_lib/src)

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "platform.h"
+#include "base/platform.h"
 
 // FT_NORETURN		Marks a function that will never return (always throws or terminates)
 // FT_NODISCARD		Marks a function whose return value must not be ignored
