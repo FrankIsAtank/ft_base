@@ -4,12 +4,16 @@
 
 #include "base/platform.h"
 
+// standard headers
+#include <cstdint>
+
 namespace ft {
 namespace base {
 namespace build {
 
 // Enum of all platforms
-enum class t_build_configs : std::uint_fast32_t {
+enum class t_build_configs : std::uint32_t
+{
     unknown = 0,
     debug = 1,
     release = 2

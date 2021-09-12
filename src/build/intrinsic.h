@@ -45,5 +45,5 @@ namespace build {
 // If a debugger is attached, causes it to break here
 FT_FORCE_INLINE void breakpoint() { FT_BREAKPOINT }
 
-};  // namespace build
-};	// namespace ft
+}   // namespace build
+} 	// namespace ft

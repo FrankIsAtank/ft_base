@@ -23,6 +23,11 @@ public:
 public:
     // Throw an exception of this type
     template<class ... t_args>
+    [[ noreturn ]]
+    static void raise(t_args&& ... p_args);
+
+    // Make an instance of this exception but don't throw it immediatly
+    template<class ... t_args>
     static except_impl make(t_args&& ... p_args);
 
     // Get this exception's name

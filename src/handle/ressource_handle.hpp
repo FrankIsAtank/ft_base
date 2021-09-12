@@ -96,10 +96,10 @@ public:
         return static_cast<const T&>(*this);
     }
     decltype(auto) operator->() {
-        return &(operator*());
+        return &static_cast<T&>(*this);
     }
     decltype(auto) operator->() const {
-        return &(operator*());
+        return &static_cast<const T&>(*this);
     }
 
     // Allow implicit conversion to bool to check validity

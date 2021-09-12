@@ -6,6 +6,16 @@
 // Throw an exception of this type
 template<class T, auto t_tag>
 template<class ... t_args>
+[[ noreturn ]]
+void ft::base::error::except_impl<T, t_tag>::raise(t_args&& ... p_args)
+{
+    throw make(std::forward<t_args>(p_args)...);
+}
+
+
+// Make an instance of this exception but don't throw it immediatly
+template<class T, auto t_tag>
+template<class ... t_args>
 ft::base::error::except_impl<T, t_tag>
 ft::base::error::except_impl<T, t_tag>::except_impl::make(t_args&& ... p_args)
 { 
