@@ -4,18 +4,15 @@ cmake_minimum_required(VERSION 3.18)
 # Project title
 project(FT_BASE_LIB)
 
+# Project name
+set(OUT_NAME "ft_base_lib")
+
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # specify source file directories
 set(DIR_SRC "${FT_BASE_LIB_SOURCE_DIR}/src")
-#set(DIR_BUILD "${DIR_SRC}/build")
-set(DIR_CONTAINER "${DIR_SRC}/container")
-set(DIR_ERROR "${DIR_SRC}/error")
-set(DIR_HANDLE "${DIR_SRC}/handle")
-set(DIR_THREAD "${DIR_SRC}/thread")
-set(DIR_TRAITS "${DIR_SRC}/traits")
 
 # source files
 file (GLOB CPP_FULL "")
@@ -42,16 +39,19 @@ ft_add_group("handle")
 ft_add_group("thread")
 ft_add_group("traits")
 
-
 # include the files
 add_library(FT_BASE_LIB ${CPP_FULL} ${HPP_FULL})
-set_target_properties(FT_BASE_LIB PROPERTIES OUTPUT_NAME ft_base_lib)
+set_target_properties(FT_BASE_LIB PROPERTIES OUTPUT_NAME ${OUT_NAME})
 
-# define default include path
-target_include_directories(FT_BASE_LIB PRIVATE "${DIR_SRC}")
 
-# include other ft libraries
 set(FT_LIB_ROOT $ENV{FT_ROOT})
 
-# include ft_platform_lib
+# output files to common directory
+set_target_properties(FT_BASE_LIB PROPERTIES
+	ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${FT_LIB_ROOT}/bin/Debug"
+	ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${FT_LIB_ROOT}/bin/Release"
+)
+
+#include own source files
+include_directories(${FT_LIB_ROOT}/ft_base_lib/src)
 include_directories(${FT_LIB_ROOT}/ft_platform_lib/src)
